@@ -11,8 +11,8 @@ package array;
  */
 public class OrderedArray {
 	
-	private int[] array;
-	private int len;
+	protected int[] array;
+	protected int len;
 	
 	/** the constructor should take
 	 * a SORTED array from small to 
@@ -86,6 +86,7 @@ public class OrderedArray {
 		
 		for(int i=0;i<len;i++){
 			sbu.append(array[i]);
+			sbu.append(',');
 		}
 		return sbu.toString();
 	}
