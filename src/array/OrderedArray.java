@@ -81,6 +81,28 @@ public class OrderedArray {
 		
 	}
 	
+	public int recursiveSearch(int data){
+		
+		return recBSearch(0,len-1,data);
+	}
+	
+	private int recBSearch(int low,int high,int key){
+		
+		int curr=(low+high)/2;
+		if(array[curr]==key)
+			return curr;
+		else if(low>high)
+			return -1;
+		else{
+			if(key>array[curr])
+				return recBSearch(curr+1,high,key);
+			else
+				return recBSearch(low,curr-1,key);
+			
+		}
+	}
+	
+	
 	public String display(){
 		StringBuilder sbu=new StringBuilder();
 		
@@ -98,6 +120,7 @@ public class OrderedArray {
 		OrderedArray tester=new OrderedArray(array);
 		
 		System.out.println("find 3 :--> "+ tester.search(3));
+		System.out.println("find 3 :--> "+ tester.recursiveSearch(3));
 		
 		tester.delete(4);
 		System.out.println("delete 4 :--> "+ tester.display());
